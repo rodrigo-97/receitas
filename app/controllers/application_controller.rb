@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::Base
   def index
-    @recipes = ['Bolo de cenoura', 'Franguinho top', 'Burgão topzera']
+    @recipes = Recipe.all
+  end
+
+  def show
+    @recipe = Recipe.find(params[:id])
   end
 end

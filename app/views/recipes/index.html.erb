@@ -5,19 +5,45 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Receitas</title>
+	<title>
+		<%= pluralize(@recipes.size, "Receita" , "Receitas" ) %>
+	</title>
 </head>
 
 <body>
 	<h1>Receitas</h1>
-
-	<ul>
-		<% @recipes.each do |recipe| %>
-			<li>
-				<%= recipe %>
-			</li>
-			<%end %>
-	</ul>
+	<table>
+		<th>
+			<tr>
+				<td>Nome</td>
+				<td>Ingredientes</td>
+				<td>Calorias</td>
+				<td>Modo de preparo</td>
+				<td>Custo</td>
+			</tr>
+		</th>
+		<tbody>
+			<% @recipes.each do |recipe| %>
+				<tr>
+					<td>
+						<%= link_to recipe.name, recipe %>
+					</td>
+					<td>
+						<%= recipe.stuff %>
+					</td>
+					<td>
+						<%=format_calory (recipe) %>
+					</td>
+					<td>
+						<%= recipe.prepare_mode %>
+					</td>
+					<td>
+						<%= recipe.cost %>
+					</td>
+				</tr>
+				<% end %>
+		</tbody>
+	</table>
 </body>
 
 </html>
