@@ -12,21 +12,25 @@
 
 <body>
 	<h1>Receitas</h1>
+	<p>
+		<%= link_to "Nova receita" , new_recipe_path %>
+	</p>
 	<table>
-		<th>
+		<thead>
 			<tr>
-				<td>Nome</td>
-				<td>Ingredientes</td>
-				<td>Calorias</td>
-				<td>Modo de preparo</td>
-				<td>Custo</td>
+				<td><b>Nome</b></td>
+				<td><b>Ingredientes</b></td>
+				<td><b>Calorias</b></td>
+				<td><b>Modo de preparo</b></td>
+				<td><b>Custo</b></td>
+				<td colspan="3"><b>Ações</b></td>
 			</tr>
-		</th>
+		</thead>
 		<tbody>
 			<% @recipes.each do |recipe| %>
 				<tr>
 					<td>
-						<%= link_to recipe.name, recipe %>
+						<%= recipe.name %>
 					</td>
 					<td>
 						<%= recipe.stuff %>
@@ -39,6 +43,15 @@
 					</td>
 					<td>
 						<%= recipe.cost %>
+					</td>
+					<td>
+						<%= link_to "Visualizar" , recipe %>
+					</td>
+					<td>
+						<%= link_to "Editar" , edit_recipe_path(recipe) %>
+					</td>
+					<td>
+						<%= link_to "Remover" , recipe_path(recipe), method: :delete, data:{confirm: "Deseja deletar esta receita?"} %>
 					</td>
 				</tr>
 				<% end %>

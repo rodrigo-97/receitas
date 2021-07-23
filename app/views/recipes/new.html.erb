@@ -1,0 +1,28 @@
+<h1>Alterar receita
+</h1>
+
+<%= form_for @recipe do |f| %>
+	<p>
+		<%= f.label :Nome %>
+			<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.label :Ingredientes %>
+			<%= f.text_area :stuff %>
+	</p>
+	<p>
+		<%= f.label :Calorias %>
+			<%= f.number_field :calories %>
+	</p>
+	<p>
+		<%= f.label :Modo_de_preparo %>
+			<%= f.text_area :prepare_mode, cols: 20, rows: 10 %>
+	</p>
+	<p>
+		<%= f.label :Custo %>
+			<%= f.number_field :cost %>
+	</p>
+	<p>
+		<%= f.submit :Alterar %>
+	</p>
+	<% end %>
