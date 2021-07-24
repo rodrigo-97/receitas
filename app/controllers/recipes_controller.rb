@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.created_at
   end
 
   def show
@@ -13,8 +13,13 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find_by(params[:id])
-    @recipe.update(recipe_params)
-    redirect_to recipes_path
+
+    if @recipe.save
+      @recipe.update(recipe_params)
+      redirect_to recipes_path
+    else
+      render :update
+    end
   end
 
   def new
@@ -23,8 +28,16 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.save
-    redirect_to recipes_path
+
+    if @recipe.save
+      redirect_to recipes_path
+    else
+      render :new
+    end
+  end
+
+  def delete
+    @recipe = Recipe.find_by(params[:id])
   end
 
   def destroy
@@ -34,6 +47,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :stuff, :calories, :prepare_mode, :cost)
+    params.require(:recipe).permit(:name, :stuff, :calories, :prepare_mode, :cost, :kind, :portion, :duration, :poster)
   end
 end

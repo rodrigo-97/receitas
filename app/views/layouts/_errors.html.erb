@@ -1,0 +1,11 @@
+<% if @recipe.errors.any? %>
+<div class="alert alert-danger" role="alert">
+  <ul>
+    <% @recipe.errors.full_messages.each do |m| %>
+    <li>
+      <%= m %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>

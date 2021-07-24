@@ -1,0 +1,57 @@
+<div class="form-row d-flex justify-content-center px-4 px-md-0">
+  <div class="col-12 col-md-6">
+    <%= render 'layouts/errors' %>
+
+    <%= form_for @recipe do |f| %>
+    <div class="form-group mt-3">
+      <%= f.label :Nome %>
+      <%= f.text_field :name, class:"form-control" %>
+    </div>
+
+    <div class="form-group mt-3">
+      <%= f.label :Ingredientes %>
+      <%= f.text_area :stuff, class:"form-control" %>
+    </div>
+
+    <div class="form-group mt-3">
+      <%= f.label :Calorias %>
+      <%= f.number_field :calories, class:"form-control" %>
+    </div>
+
+    <div class="form-group mt-3">
+      <%= f.label :Modo_de_preparo %>
+    </div>
+    <%= f.text_area :prepare_mode, cols: 20, rows: 10, class:"form-control" %>
+
+    <div class="form-group mt-3">
+      <%= f.label :Custo %>
+      <%= f.number_field :cost, class:"form-control" %>
+    </div>
+
+    <div class="form-group mt-3">
+      <%= f.label :Tipo %>
+      <%= f.text_field :kind, class:"form-control" %>
+    </div>
+
+    <div class="form-group mt-3">
+      <%= f.label :Porções %>
+      <%= f.text_field :portion, class:"form-control" %>
+    </div>
+
+    <div class="form-group mt-3">
+      <%= f.label :Tempo_de_preparo %>
+      <%= f.time_select :duration, class:"form-select" %>
+    </div>
+
+    <div class="form-group mt-3">
+      <%= f.label :Poster %>
+      <%= f.text_field :poster, placeholder: ".GIF .JPEG ou .PNG", class:"form-control" %>
+    </div>
+
+    <div class="my-3">
+      <%= f.submit :Submit, class: 'btn btn-primary' %>
+      <%= link_to 'Cancelar', recipes_path, class: "btn btn-danger" %>
+    </div>
+    <% end %>
+  </div>
+</div>
