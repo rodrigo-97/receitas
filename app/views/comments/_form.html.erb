@@ -1,5 +1,6 @@
 <div class="form-row d-flex justify-content-center px-4 px-md-0 m-0">
   <div class="col-12 col-md-6">
+    <%= render 'layouts/errors', object: @comment %>
     <p class="h2">Receita: <b><%= @recipe.name %></b></p>
 
     <%= form_for ([@recipe, @comment]) do |f| %>

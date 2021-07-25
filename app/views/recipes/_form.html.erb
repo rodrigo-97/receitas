@@ -1,6 +1,6 @@
 <div class="form-row d-flex justify-content-center px-4 px-md-0 m-0">
   <div class="col-12 col-md-6">
-    <%= render 'layouts/errors' %>
+    <%= render 'layouts/errors', object: @recipe %>
 
     <%= form_for @recipe do |f| %>
     <div class="form-group mt-3">

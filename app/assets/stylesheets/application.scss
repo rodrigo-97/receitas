@@ -6,7 +6,9 @@
 }
 
 .card_height {
-  max-height: 150px!important;
+  object-fit: cover;
+  max-height: 240px!important;
+  max-width: 360px!important;
 }
 
 .time_style{

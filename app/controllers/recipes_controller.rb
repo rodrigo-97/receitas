@@ -1,14 +1,8 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe
+
   def index
     @recipes = Recipe.created_at
-  end
-
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
-
-  def edit
-    @recipe = Recipe.find(params[:id])
   end
 
   def update
@@ -36,10 +30,6 @@ class RecipesController < ApplicationController
     end
   end
 
-  def delete
-    @recipe = Recipe.find_by(params[:id])
-  end
-
   def destroy
     @recipe = Recipe.find_by(params[:id])
     @recipe.destroy
@@ -47,6 +37,10 @@ class RecipesController < ApplicationController
   end
 
   private
+  def set_recipe
+    @recipe = Recipe.find_by(params[:id])
+  end
+
   def recipe_params
     params.require(:recipe).permit(:name, :stuff, :calories, :prepare_mode, :cost, :kind, :portion, :duration, :poster)
   end

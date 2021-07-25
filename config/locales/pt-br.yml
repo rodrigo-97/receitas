@@ -13,6 +13,10 @@ pt-BR:
         portion: Porção
         duration: Tempo de preparo
         poster: Imagem da receita
+      comment:
+        name: Nome do avaliador
+        rating: Avaliação
+        comment: Comentários
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
