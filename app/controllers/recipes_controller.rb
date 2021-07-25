@@ -1,13 +1,11 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe
+  before_action :set_recipe, except: [:index, :new, :create]
 
   def index
     @recipes = Recipe.created_at
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
-
     if @recipe.save
       @recipe.update(recipe_params)
       redirect_to recipes_path, notice: "Receita alterada com sucesso!"
@@ -31,14 +29,13 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find_by(params[:id])
     @recipe.destroy
     redirect_to recipes_path, alert: "Receita deletada com sucesso!"
   end
 
   private
   def set_recipe
-    @recipe = Recipe.find_by(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def recipe_params
