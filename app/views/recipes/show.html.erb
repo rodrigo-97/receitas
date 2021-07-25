@@ -36,7 +36,7 @@
 
 		<div class="mt-3">
 			<p class="h4">Tempo de preparo</p>
-			<%= @recipe.prepare_mode %>
+			<%= @recipe.duration.strftime("%H:%M") %>
 		</div>
 
 		<div class="mt-3">
