@@ -4,15 +4,15 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find_by(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def edit
-    @recipe = Recipe.find_by(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def update
-    @recipe = Recipe.find_by(params[:id])
+    @recipe = Recipe.find(params[:id])
 
     if @recipe.save
       @recipe.update(recipe_params)
@@ -46,6 +46,7 @@ class RecipesController < ApplicationController
     redirect_to recipes_path, alert: "Receita deletada com sucesso!"
   end
 
+  private
   def recipe_params
     params.require(:recipe).permit(:name, :stuff, :calories, :prepare_mode, :cost, :kind, :portion, :duration, :poster)
   end

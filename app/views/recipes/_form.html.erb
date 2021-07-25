@@ -5,42 +5,45 @@
     <%= form_for @recipe do |f| %>
     <div class="form-group mt-3">
       <%= f.label :Nome %>
-      <%= f.text_field :name, class:"form-control" %>
+      <%= f.text_field :name, placeholder: "Insira o nome da receita", class:"form-control" %>
     </div>
 
     <div class="form-group mt-3">
       <%= f.label :Ingredientes %>
-      <%= f.text_area :stuff, class:"form-control" %>
+      <%= f.text_area :stuff, placeholder: "Insira os ingredientes da receita", class:"form-control" %>
     </div>
 
     <div class="form-group mt-3">
       <%= f.label :Calorias %>
-      <%= f.number_field :calories, class:"form-control" %>
+      <%= f.number_field :calories, placeholder: "Insira o número de calorias da receita", class:"form-control" %>
     </div>
 
     <div class="form-group mt-3">
       <%= f.label :Modo_de_preparo %>
     </div>
-    <%= f.text_area :prepare_mode, cols: 20, rows: 10, class:"form-control" %>
+    <%= f.text_area :prepare_mode, placeholder: "Redija o modo de preparo", cols: 20, rows: 10, class:"form-control" %>
 
     <div class="form-group mt-3">
       <%= f.label :Custo %>
-      <%= f.number_field :cost, class:"form-control" %>
+      <%= f.number_field :cost, placeholder: "Valor total da receita", class:"form-control" %>
     </div>
 
     <div class="form-group mt-3">
       <%= f.label :Tipo %>
-      <%= f.text_field :kind, class:"form-control" %>
+      <%= f.select :kind, options_for_select(Recipe::KIND), {prompt: "Selecione o tipo de comida"}, { class: "form-select" } %>
     </div>
 
     <div class="form-group mt-3">
       <%= f.label :Porções %>
-      <%= f.text_field :portion, class:"form-control" %>
+      <%= f.text_field :portion, placeholder:"Número de porções para servir",class:"form-control" %>
     </div>
 
-    <div class="form-group mt-3">
+    <div class="form-group d-flex mt-3">
       <%= f.label :Tempo_de_preparo %>
-      <%= f.time_select :duration, class:"btn btn-primary" %>
+    </div>
+
+    <div class="form-group d-flex">
+      <%= f.time_select :duration, {prompt: {hour: "Horas", minute: "Minutos"}, time_separator: ""}, {class: "form-select time_style"} %>
     </div>
 
     <div class="form-group mt-3">

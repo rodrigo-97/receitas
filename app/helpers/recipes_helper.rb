@@ -9,9 +9,9 @@ module RecipesHelper
 
   def has_image (recipe)
     if recipe.poster.blank?
-      image_tag('https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png', class: "img-fluid fix_image")
+      image_tag('https://cdn.neemo.com.br/uploads/settings_webdelivery/logo/1630/no-image.png', class: "fix_image card_height")
     else
-      image_tag(recipe.poster, class:"img-fluid fix_image")
+      image_tag(recipe.poster, class:"fix_image card_height")
     end
   end
 end

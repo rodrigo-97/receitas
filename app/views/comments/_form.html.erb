@@ -1,0 +1,27 @@
+<div class="form-row d-flex justify-content-center px-4 px-md-0 m-0">
+  <div class="col-12 col-md-6">
+    <p class="h2">Receita: <b><%= @recipe.name %></b></p>
+
+    <%= form_for ([@recipe, @comment]) do |f| %>
+    <div class="form-group mt-3">
+      <%= f.label :Nome %>
+      <%= f.text_field :name, placeholder: "Insira seu nome", class:"form-control" %>
+    </div>
+
+    <div class="form-group mt-3">
+      <%= f.label :Nota_para_a_receita %>
+      <%= f.select :rating, options_for_select(Comment::RATING), {prompt: "Selecione sua nota"}, { class: "form-select" } %>
+    </div>
+
+    <div class="form-group mt-3">
+      <%= f.label :Comentário %>
+      <%= f.text_area :comment, placeholder:"Redija seu comentário", class:"form-control" %>
+    </div>
+
+    <div class="my-3">
+      <%= f.submit :Enviar, class:"btn btn-primary" %>
+      <%= link_to 'Cancelar', recipes_path, class: "btn btn-danger" %>
+    </div>
+    <% end %>
+  </div>
+</div>

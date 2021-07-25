@@ -1,0 +1,6 @@
+<% if @recipe.comments.count == 0 %>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Atenção!</strong> Não há comentários para a receita <b><%= @recipe.name %></b>.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% end %>

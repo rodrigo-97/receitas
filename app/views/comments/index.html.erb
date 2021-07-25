@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center">
+  <div class="col-12 col-md-6 px-4 px-md-0">
+    <%= render 'no_comments' %>
+    <ul class="list-group list-group-flush">
+      <% @comments.each do |comment| %>
+      <li class="list-group-item p-0">
+        <p class="m-0 mt-3">
+          <b>Avaliador:</b>
+        </p>
+        <%= comment.name %>
+
+        <p class="m-0 mt-3">
+          <b>Avaliação:</b>
+        </p>
+        <%= pluralize(comment.rating, 'ponto', 'pontos') %>
+
+        <p class="m-0 mt-3">
+          <b>Comentário:</b>
+        </p>
+        <%= comment.comment %>
+
+        <p class="card-text mt-2"><small class="text-muted">
+          Atualizado há
+          <%= time_ago_in_words(comment.updated_at) %></small>
+        </p>
+      </li>
+      <% end %>
+    </ul>
+
+    <%= link_to 'Voltar', recipes_path, class: "btn btn-primary mt-3" %>
+  </div>
+</div>
