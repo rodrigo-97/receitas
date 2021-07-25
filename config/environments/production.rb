@@ -117,17 +117,4 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-
-  configure :production do
-  db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
-
-  ActiveRecord::Base.establish_connection(
-      :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
-      :host     => db.host,
-      :username => db.user,
-      :password => db.password,
-      :database => db.path[1..-1],
-      :encoding => 'utf8'
-  )
-end
 end
