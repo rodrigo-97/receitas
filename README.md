@@ -1,24 +1,18 @@
+
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Básico para rodar o projeto
 
 Things you may want to cover:
 
 * Ruby version
+  - 2.7
 
 * System dependencies
-
-* Configuration
+  - pg
 
 * Database creation
+	* `rails db:create`
 
 * Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+	* `rails db:migrate`
